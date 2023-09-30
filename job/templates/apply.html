@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Apply{% endblock %}
+
+{% block content %}
+    <div class="modal-body text-center">
+        <form method="post" action=".">
+            {% csrf_token %}
+            
+            <h3 class="text-center">
+                {{job.title}}
+            </h3><br>
+
+            <p>By clicking this you will apply successfully</p>
+            <br>
+
+            <input type="hidden" name="get-job" value="{{job.name}}">
+            <button type="submit" class="btn btn-outline-success">Get Job</button>
+        </form>
+    </div>
+        
+{% endblock %}

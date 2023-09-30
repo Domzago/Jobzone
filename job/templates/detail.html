@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container px-6 px-lg-8 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            <div class="col mb-5">
+                <div class="card h-100">
+                
+                    <img class="card-img-top" src="{{job.image.url}}" alt="..." />
+                
+                    <div class="card-body p-6">
+                        <div class="text-center">
+                            
+                            <h5 class="fw-bolder">Title: {{job.title}}</h5>
+                    
+                            
+                            <div class="text-sm">Category: {{job.category}}</div>
+                            <div class="mb-2 text-2xl">Posted By: {{job.created}}</div>
+                            <div class="mb-2 text-2xl">Name: {{job.name}}</div>
+                            <div  class="mb-2 text-2xl"><a href="#">Email: {{job.email}}</a></div>
+                            <div class="mb-2 text-2xl">Details: {{job.description}}</div>
+                            <div class="mb-2 text-2xl">{{job.date|date:'F d, Y'}}</div>
+                        </div>           
+                    </div>
+
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'apply' %}">Apply Now</a></div>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="mb-2 mt-2 text-center">
+    <a class="btn btn-success" href="{% url 'update' job.id %}">Update</a>
+    <a class="btn btn-danger" href="{% url 'delete' job.id %}">Delete</a>
+
+</div>
+{% endblock %}
